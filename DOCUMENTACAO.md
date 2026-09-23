@@ -1,4 +1,4 @@
-
+<p align="justify">
 
 # Título do Projeto: Hora do gato maluco
 
@@ -12,11 +12,11 @@ Além de proporcionar uma experiência interativa baseada em ritmo e tempo de re
 
 2.1. Ao iniciar o programa, o usuário irá visualizar um menu principal com as seguintes opções:
 
-  `1.` Jogar
-  `2.` Como jogar
-  `3.` Sobre o jogo
-  `4.` Resultados
-  `5.` Sair
+  `1.` Jogar  
+  `2.` Como jogar  
+  `3.` Sobre o jogo  
+  `4.` Resultados  
+  `5.` Sair  
 
 2.2. Caso o usuário escolha a opção `1`, o programa irá exibir uma tela de jogadores, onde constará os nicknames de quem já jogou o jogo. Se for a primeira vez do usuário jogando, irá solicitar para ele inserir o nickname para poder começar a jogar.
 
@@ -91,3 +91,5 @@ typedef struct {
     int        quadro;
     long       ultima_batida_ms;
 } Gato;
+
+</p>
