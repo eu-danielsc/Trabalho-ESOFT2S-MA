@@ -89,3 +89,49 @@ typedef struct {
     int        quadro;
     long       ultima_batida_ms;
 } Gato;
+
+A estrutura Gato controla a animação do personagem que bate no tambor. O campo estado define a pose atual, quadro indica qual quadro da animação em ASCII art deve ser desenhado, e ultima_batida_ms registra o momento da última batida.
+
+typedef struct {
+    char nome[MAX_NOME];
+    char fase[MAX_TITULO];
+    int  pontuacao;
+} RegistroRanking;
+
+A estrutura RegistroRanking corresponde a uma linha do ranking gravado em arquivo, associando o nome do jogador, a fase jogada e a pontuação obtida.
+
+typedef struct {
+    EstadoJogo estado;
+    Jogador    jogador;
+    Fase       fase;
+    Gato       gato;
+    char       tela[ALTURA_TELA][LARGURA_TELA + 1];
+    long       tempo_inicio_ms;
+} Jogo;
+
+Por fim, a estrutura Jogo reúne todas as demais em um único registro que representa o estado completo da aplicação: a tela atual, o jogador, a fase carregada, o gato, a matriz de caracteres usada como quadro de desenho e o instante em que a partida começou.
+
+Resumo da estrutura e	Função no sistema
+
+Nota:	Cada elemento ASCII que anda da direita para a esquerda; guarda quando e qual tecla deve ser pressionada.
+Fase:	Uma música/desafio: título, andamento e o vetor de notas.
+Jogador:	Pontuação, combo e estatísticas de acertos e erros.
+Gato:	Estado da animação do gato batendo no tambor.
+RegistroRanking:	Uma linha do ranking salvo em arquivo.
+Jogo:	Agrupa todo o estado da partida, passado por ponteiro às funções.
+
+4.3 Estruturas homogêneas (vetores, strings e matrizes)
+char tela[ALTURA_TELA][LARGURA_TELA + 1]: matriz de caracteres que funciona como buffer de vídeo. A cada quadro ela é limpa, recebe notas, gato e placar, e é impressa de uma só vez, o que evita cintilação no terminal.
+const char *sprite_gato[NUM_QUADROS][LINHAS_GATO]: matriz de strings com os quadros da animação do gato em ASCII art.
+Nota *notas: vetor de estruturas, ordenado por tempo_ms. Um índice da próxima nota evita percorrer o vetor inteiro a cada quadro.
+RegistroRanking ranking[MAX_RANKING]: vetor de estruturas mantido em ordem decrescente de pontuação.
+Strings (nome, titulo): vetores de char para nomes e títulos.
+
+4.4 Organização (Arquivos e Conteúdos)
+
+main.c:	Laço principal e máquina de estados (EstadoJogo).
+tipos.h:	Constantes, enumerações e structs.
+jogo.h/.c:	Inicialização, atualização das notas, julgamento do acerto, pontuação e combo.
+fase.h/.c:	carregar_fase() e liberar_fase().
+render.h/.c:	Limpeza da tela, desenho de notas, gato e placar, impressão do buffer.
+ranking.h/.c:	Carregar, inserir ordenado e salvar o ranking.
