@@ -1,1 +1,0 @@
-# Trabalho-ESOFT2S-MA
