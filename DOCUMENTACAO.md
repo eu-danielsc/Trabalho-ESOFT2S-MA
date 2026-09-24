@@ -125,12 +125,13 @@ Resumo da estrutura e Função no sistema
 - Jogo:	Agrupa todo o estado da partida, passado por ponteiro às funções.
 
 4.3 Estruturas homogêneas (vetores, strings e matrizes)
-char tela[ALTURA_TELA][LARGURA_TELA + 1]: matriz de caracteres que funciona como buffer de vídeo. A cada quadro ela é limpa, recebe notas, gato e placar, e é impressa de uma só vez, o que evita cintilação no terminal.
-const char *sprite_gato[NUM_QUADROS][LINHAS_GATO]: matriz de strings com os quadros da animação do gato em ASCII art.
-Nota *notas: vetor de estruturas, ordenado por tempo_ms. Um índice da próxima nota evita percorrer o vetor inteiro a cada quadro.
-RegistroJogador jogadores[MAX_JOGADORES]: vetor de estruturas com os jogadores cadastrados, ordenado em ordem decrescente de pontuação na tela de resultados.
-Strings (nickname, titulo): vetores de char para nicknames e títulos.
-Vetores de strings (opcoes_menu, texto_como_jogar, texto_sobre): guardam as opções do menu e os textos das telas "Como jogar" e "Sobre o jogo", exibidos linha a linha por um laço.
+
+- char tela[ALTURA_TELA][LARGURA_TELA + 1]: matriz de caracteres que funciona como buffer de vídeo. A cada quadro ela é limpa, recebe notas, gato e placar, e é impressa de uma só vez, o que evita cintilação no terminal.
+- const char *sprite_gato[NUM_QUADROS][LINHAS_GATO]: matriz de strings com os quadros da animação do gato em ASCII art.
+- Nota *notas: vetor de estruturas, ordenado por tempo_ms. Um índice da próxima nota evita percorrer o vetor inteiro a cada quadro.
+- RegistroJogador jogadores[MAX_JOGADORES]: vetor de estruturas com os jogadores cadastrados, ordenado em ordem decrescente de pontuação na tela de resultados.
+- Strings (nickname, titulo): vetores de char para nicknames e títulos.
+- Vetores de strings (opcoes_menu, texto_como_jogar, texto_sobre): guardam as opções do menu e os textos das telas "Como jogar" e "Sobre o jogo", exibidos linha a linha por um laço.
 
 4.4 Organização (Arquivos e Conteúdos)
 
