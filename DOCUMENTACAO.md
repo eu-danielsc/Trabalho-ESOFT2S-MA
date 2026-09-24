@@ -115,15 +115,6 @@ A estrutura RegistroJogador corresponde a uma linha do cadastro gravado em arqui
 ```
 Por fim, a estrutura Jogo reúne todas as demais em um único registro que representa o estado completo da aplicação: a tela atual, o jogador, a fase carregada, o gato, o cadastro de jogadores, a matriz de caracteres usada como quadro de desenho e o instante em que a partida começou.
 
-Resumo da estrutura e Função no sistema
-
-- Nota:	Cada elemento ASCII que anda da direita para a esquerda; guarda quando e qual tecla deve ser pressionada.
-- Fase:	Uma música/desafio: título, andamento e o vetor de notas.
-- Jogador:	Pontuação, combo e estatísticas de acertos e erros.
-- Gato:	Estado da animação do gato batendo no tambor.
-- RegistroJogador:	Um jogador cadastrado (nickname e melhor pontuação), salvo em arquivo.
-- Jogo:	Agrupa todo o estado da partida, passado por ponteiro às funções.
-
 4.3 Estruturas homogêneas (vetores, strings e matrizes)
 
 - char tela[ALTURA_TELA][LARGURA_TELA + 1]: matriz de caracteres que funciona como buffer de vídeo. A cada quadro ela é limpa, recebe notas, gato e placar, e é impressa de uma só vez, o que evita cintilação no terminal.
@@ -133,22 +124,3 @@ Resumo da estrutura e Função no sistema
 - Strings (nickname, titulo): vetores de char para nicknames e títulos.
 - Vetores de strings (opcoes_menu, texto_como_jogar, texto_sobre): guardam as opções do menu e os textos das telas "Como jogar" e "Sobre o jogo", exibidos linha a linha por um laço.
 
-4.4 Organização (Arquivos e Conteúdos)
-
-- main.c:	Laço principal e máquina de estados (EstadoJogo).
-- tipos.h:	Constantes e structs.
-- jogo.h/.c:	Inicialização, atualização das notas, julgamento do acerto, pontuação e combo.
-- fase.h/.c:	carregar_fase() e liberar_fase().
-- render.h/.c:	Limpeza da tela, desenho de notas, gato e placar, impressão do buffer.
-- jogadores.h/.c:	Carregar e salvar jogadores.txt, buscar nickname, cadastrar, atualizar pontuação e ordenar por pontuação.
-- telas.h/.c:	Exibição do menu, da tela de jogadores, do manual, do "Sobre" e dos resultados.
-
-4.5 Estruturas do menu principal
-
-Para o menu principal, o programa utiliza os seguintes dados:
-
-- opcoes_menu[]: vetor de strings com as opções do menu.
-- texto_como_jogar[]: vetor de strings com o manual e as regras de pontuação.
-- texto_sobre[]: vetor de strings com a proposta e a finalidade do jogo.
-- jogadores[MAX_JOGADORES]: vetor de RegistroJogador (nickname e melhor pontuação) com os jogadores cadastrados, acompanhado do contador total_jogadores.
-- jogadores.txt: arquivo de texto que guarda os jogadores cadastrados (nickname;melhor_pontuacao) entre uma execução e outra.
