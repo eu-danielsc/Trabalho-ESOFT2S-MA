@@ -52,11 +52,11 @@ As constantes "MAX_NICKNAME" e "MAX_TITULO" definem o tamanho máximo das string
 Por fim, "JANELA_PERFEITO_MS" e "JANELA_BOM_MS" regulam a precisão exigida do jogador. Elas expressam, em milissegundos, a diferença máxima aceita entre o instante em que a tecla é pressionada e o instante ideal da nota. 
 
 Além das constantes, o arquivo tipos.h define tipos enumerados, que representam os estados possíveis de cada entidade do sistema. Com eles o código usa nomes descritivos (como NOTA_ATIVA) no lugar de números sem significado aparente, o que melhora a legibilidade e reduz erros.
-
+```c
 typedef enum { NOTA_AGUARDANDO, NOTA_ATIVA, NOTA_ACERTADA, NOTA_PERDIDA } EstadoNota;
 
 typedef enum { GATO_PARADO, GATO_BATE_ESQUERDA, GATO_BATE_DIREITA } EstadoGato;
-```c
+
 typedef enum {
     TELA_MENU,
     TELA_JOGADORES,
