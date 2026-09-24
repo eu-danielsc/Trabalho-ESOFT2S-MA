@@ -34,7 +34,7 @@ A estrutura de dados do jogo foi pensada para representar os quatro elementos ce
 
 4.1 Constantes e enumeradores
 
-Antes de definir as estruturas, o projeto estabelece um conjunto de constantes simbólicas no arquivo tipos.h. Essa centralização evita "números mágicos" espalhados pelo código e facilita ajustes futuros: para mudar a dificuldade do jogo ou o tamanho da tela, basta alterar um único valor, sem procurar cada ocorrência nos módulos. A seguir o exemplo das constantes que serão ultilizadas:
+Antes de definir as estruturas, o projeto estabelece um conjunto de constantes simbólicas no arquivo tipos.h. Essa centralização evita "números mágicos" espalhados pelo código e facilita ajustes futuros. A seguir o exemplo das constantes que serão ultilizadas:
 
 - #define MAX_NICKNAME        20
 - #define MAX_TITULO          50
@@ -45,13 +45,9 @@ Antes de definir as estruturas, o projeto estabelece um conjunto de constantes s
 - #define JANELA_PERFEITO_MS  50
 - #define JANELA_BOM_MS       120
 - #define PONTOS_PERFEITO     100
-- #define PONTOS_BOM          50
+- #define PONTOS_BOM          50 
 
-As constantes "MAX_NICKNAME" e "MAX_TITULO" definem o tamanho máximo das strings usadas para o nickname do jogador e o título das fases, enquanto "MAX_JOGADORES" limita quantos jogadores o cadastro comporta. LARGURA_TELA e ALTURA_TELA correspondem às dimensões do terminal padrão e determinam o tamanho da matriz que armazena o quadro a ser desenhado. "COLUNA_ALVO" indica a coluna em que fica a zona de acerto, ou seja, o ponto da tela em que a nota deve estar quando o jogador pressionar a tecla. As constantes "PONTOS_PERFEITO" e "PONTOS_BOM" definem quantos pontos cada tipo de acerto vale e são a base da pontuação explicada na opção "Como jogar" do menu.
-
-Por fim, "JANELA_PERFEITO_MS" e "JANELA_BOM_MS" regulam a precisão exigida do jogador. Elas expressam, em milissegundos, a diferença máxima aceita entre o instante em que a tecla é pressionada e o instante ideal da nota. 
-
-Além das constantes, o arquivo tipos.h define tipos enumerados, que representam os estados possíveis de cada entidade do sistema. Com eles o código usa nomes descritivos (como NOTA_ATIVA) no lugar de números sem significado aparente, o que melhora a legibilidade e reduz erros.
+Além das constantes, o arquivo tipos.h define tipos enumerados, que representam os estados possíveis de cada entidade do sistema.
 ```c
 typedef enum { NOTA_AGUARDANDO, NOTA_ATIVA, NOTA_ACERTADA, NOTA_PERDIDA } EstadoNota;
 
@@ -130,13 +126,4 @@ A estrutura RegistroJogador corresponde a uma linha do cadastro gravado em arqui
   } Jogo;
 ```
 Por fim, a estrutura Jogo reúne todas as demais em um único registro que representa o estado completo da aplicação: a tela atual, o jogador, a fase carregada, o gato, o cadastro de jogadores, a matriz de caracteres usada como quadro de desenho e o instante em que a partida começou.
-
-4.3 Estruturas homogêneas (vetores, strings e matrizes)
-
-- char tela[ALTURA_TELA][LARGURA_TELA + 1]: matriz de caracteres que funciona como buffer de vídeo. A cada quadro ela é limpa, recebe notas, gato e placar, e é impressa de uma só vez, o que evita cintilação no terminal.
-- const char *sprite_gato[NUM_QUADROS][LINHAS_GATO]: matriz de strings com os quadros da animação do gato em ASCII art.
-Nota *notas: vetor de estruturas, ordenado por tempo_ms. Um índice da próxima nota evita percorrer o vetor inteiro a cada quadro.
-- RegistroJogador jogadores[MAX_JOGADORES]: vetor de estruturas com os jogadores cadastrados, ordenado em ordem decrescente de pontuação na tela de resultados.
-- Strings (nickname, titulo): vetores de char para nicknames e títulos.
-- Vetores de strings (opcoes_menu, texto_como_jogar, texto_sobre): guardam as opções do menu e os textos das telas "Como jogar" e "Sobre o jogo", exibidos linha a linha por um laço.
 
