@@ -115,7 +115,7 @@ A estrutura RegistroJogador corresponde a uma linha do cadastro gravado em arqui
 ```
 Por fim, a estrutura Jogo reúne todas as demais em um único registro que representa o estado completo da aplicação: a tela atual, o jogador, a fase carregada, o gato, o cadastro de jogadores, a matriz de caracteres usada como quadro de desenho e o instante em que a partida começou.
 
-´Resumo da estrutura e Função no sistema´
+Resumo da estrutura e Função no sistema
 
 - Nota:	Cada elemento ASCII que anda da direita para a esquerda; guarda quando e qual tecla deve ser pressionada.
 - Fase:	Uma música/desafio: título, andamento e o vetor de notas.
