@@ -32,7 +32,7 @@ Além de proporcionar uma experiência interativa baseada em ritmo e tempo de re
 
 A estrutura de dados do jogo foi pensada para representar os quatro elementos centrais do sistema: as notas que se deslocam pela tela, pontuação e combo do jogador, o gato animado e a tela desenhada em ASCII. Os dados persistentes como fases e ranking ficam em arquivos de texto. Todos os tipos ficam em tipos.h, incluído pelos demais módulos.
 
-4.1 Constantes
+4.1 Constantes e enumeradores
 
 Antes de definir as estruturas, o projeto estabelece um conjunto de constantes simbólicas no arquivo tipos.h. Essa centralização evita "números mágicos" espalhados pelo código e facilita ajustes futuros: para mudar a dificuldade do jogo ou o tamanho da tela, basta alterar um único valor, sem procurar cada ocorrência nos módulos. A seguir o exemplo das constantes que serão ultilizadas:
 
@@ -49,12 +49,28 @@ Antes de definir as estruturas, o projeto estabelece um conjunto de constantes s
 
 As constantes "MAX_NICKNAME" e "MAX_TITULO" definem o tamanho máximo das strings usadas para o nickname do jogador e o título das fases, enquanto "MAX_JOGADORES" limita quantos jogadores o cadastro comporta. LARGURA_TELA e ALTURA_TELA correspondem às dimensões do terminal padrão e determinam o tamanho da matriz que armazena o quadro a ser desenhado. "COLUNA_ALVO" indica a coluna em que fica a zona de acerto, ou seja, o ponto da tela em que a nota deve estar quando o jogador pressionar a tecla. As constantes "PONTOS_PERFEITO" e "PONTOS_BOM" definem quantos pontos cada tipo de acerto vale e são a base da pontuação explicada na opção "Como jogar" do menu.
 
-Por fim, "JANELA_PERFEITO_MS" e "JANELA_BOM_MS" regulam a precisão exigida do jogador. Elas expressam, em milissegundos, a diferença máxima aceita entre o instante em que a tecla é pressionada e o instante ideal da nota. Se a diferença for de até 50 ms, o acerto é considerado perfeito. Entre 50 ms e 120 ms, é considerado bom. Acima disso, conta como erro.
+Por fim, "JANELA_PERFEITO_MS" e "JANELA_BOM_MS" regulam a precisão exigida do jogador. Elas expressam, em milissegundos, a diferença máxima aceita entre o instante em que a tecla é pressionada e o instante ideal da nota. 
 
+Além das constantes, o arquivo tipos.h define tipos enumerados, que representam os estados possíveis de cada entidade do sistema. Com eles o código usa nomes descritivos (como NOTA_ATIVA) no lugar de números sem significado aparente, o que melhora a legibilidade e reduz erros.
+
+typedef enum { NOTA_AGUARDANDO, NOTA_ATIVA, NOTA_ACERTADA, NOTA_PERDIDA } EstadoNota;
+
+typedef enum { GATO_PARADO, GATO_BATE_ESQUERDA, GATO_BATE_DIREITA } EstadoGato;
+```c
+typedef enum {
+    TELA_MENU,
+    TELA_JOGADORES,
+    TELA_JOGO,
+    TELA_FIM_PARTIDA,
+    TELA_COMO_JOGAR,
+    TELA_SOBRE,
+    TELA_RESULTADOS,
+    TELA_SAIR
+} EstadoJogo;
+```
 4.2 Estruturas heterogêneas (struct)
 
 Os dados do jogo são organizados em estruturas heterogêneas, que reúnem em um único tipo campos de naturezas diferentes (textos, números, estados). 
-
 ```c
 typedef struct {
     long       tempo_ms;   /* instante do acerto, em ms desde o início da fase */
