@@ -136,7 +136,7 @@ Resumo da estrutura e Função no sistema
 4.4 Organização (Arquivos e Conteúdos)
 
 - main.c:	Laço principal e máquina de estados (EstadoJogo).
-- tipos.h:	Constantes, enumerações e structs.
+- tipos.h:	Constantes e structs.
 - jogo.h/.c:	Inicialização, atualização das notas, julgamento do acerto, pontuação e combo.
 - fase.h/.c:	carregar_fase() e liberar_fase().
 - render.h/.c:	Limpeza da tela, desenho de notas, gato e placar, impressão do buffer.
