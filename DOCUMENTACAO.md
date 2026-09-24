@@ -28,6 +28,8 @@ Além de proporcionar uma experiência interativa baseada em ritmo e tempo de re
 
 `3. Fluxograma da Lógica do Sistema`
 
+![Fluxograma Principal](https://github.com/eu-danielsc/Trabalho-ESOFT2S-MA/blob/main/fluxograma%20trabalho%20prog%201bim.jpeg)
+
 `4. Estrutura de Dados`
 
 A estrutura de dados do jogo foi pensada para representar os quatro elementos centrais do sistema: as notas que se deslocam pela tela, pontuação e combo do jogador, o gato animado e a tela desenhada em ASCII. Os dados persistentes como fases e ranking ficam em arquivos de texto. Todos os tipos ficam em tipos.h, incluído pelos demais módulos.
