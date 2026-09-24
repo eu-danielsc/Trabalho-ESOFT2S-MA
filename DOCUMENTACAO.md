@@ -87,7 +87,7 @@ typedef struct {
     int   bpm;                // batidas por minuto (andamento da música)
     int   velocidade;         // colunas que a nota percorre por segundo
     int   total_notas;        // quantidade de notas da fase
-    Nota *notas;              // vetor de notas, alocado com malloc
+    Nota *notas;              // vetor de notas
 } Fase;
 ```
 A estrutura Fase representa uma música ou desafio completo, com título, andamento (bpm) e velocidade, que define quantas colunas a nota percorre por segundo e, portanto, a dificuldade.
