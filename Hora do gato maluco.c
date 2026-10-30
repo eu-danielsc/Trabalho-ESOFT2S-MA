@@ -1,16 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-#define MAX_NICKNAME        20
 #define MAX_TITULO          50
 #define MAX_JOGADORES       50
 #define LARGURA_TELA        80   // colunas do terminal
 #define ALTURA_TELA         24   // linhas do terminal
 #define COLUNA_ALVO         10   // coluna da zona de acerto
-#define JANELA_PERFEITO_MS  50   // toler‚ncia (ms) para acerto perfeito
-#define JANELA_BOM_MS       120  // toler‚ncia (ms) para acerto bom; acima disso È erro
+#define JANELA_PERFEITO_MS  50   // toler√¢ncia (ms) para acerto perfeito
+#define JANELA_BOM_MS       120  // toler√¢ncia (ms) para acerto bom; acima disso √© erro
 #define PONTOS_PERFEITO     100  // pontos por acerto perfeito
 #define PONTOS_BOM          50   // pontos por acerto bom 
  
@@ -140,7 +136,7 @@ int main (){
  
     int menu;
  
- //OpÁıes de menu
+ //Op√ß√µes de menu
  
     printf("Escolha uma opcao (1 a 5): ");
     scanf("%d", &menu);
