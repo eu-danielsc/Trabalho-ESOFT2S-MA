@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_TITULO          50
-#define MAX_JOGADORES       50
+#define MAX_JOGADORES       100
 #define LARGURA_TELA        80   // colunas do terminal
 #define ALTURA_TELA         24   // linhas do terminal
 #define COLUNA_ALVO         10   // coluna da zona de acerto
@@ -18,17 +18,10 @@ int total_jogadores = 0;
 void TELA_JOGAR(){
  
     FILE *arquivo;
-    char resposta[100];
-    char nick[21];
-    int primeira_vez;
-    int pronto;
-    int achou;
-    int igual;
-    int i;
-    int j;
+    char resposta[2], nick[21];
+    int primeira_vez = -1, pronto = 0, achou = 0, igual, i, j;
  
     // Le os nicknames salvos no arquivo (se o arquivo ainda nao existe, a lista fica vazia)
-    total_jogadores = 0;
     arquivo = fopen("nicknames.txt", "r");
     if (arquivo != NULL) {
         while (total_jogadores < 100 && fscanf(arquivo, "%20s", nicknames[total_jogadores]) == 1) {
@@ -40,7 +33,7 @@ void TELA_JOGAR(){
     // Tela com os nicknames de quem ja jogou
     printf("===== JOGADORES REGISTRADOS =====\n");
     if (total_jogadores == 0) {
-        printf("Nenhum jogador registrado ainda.\n");
+        printf("Nenhum jogador registrado\n");
     } else {
         for (i = 0; i < total_jogadores; i++) {
             printf("%s\n", nicknames[i]);
@@ -49,38 +42,28 @@ void TELA_JOGAR(){
     printf("=================================\n");
  
     // Pergunta ate o jogador responder S ou N
-    primeira_vez = -1;
     while (primeira_vez == -1) {
-        printf("E a sua primeira vez jogando? (S/N): ");
+        printf("Eh a sua primeira vez jogando? (S/N): ");
         scanf("%s", resposta);
  
-        if ((resposta[0] == 'S' || resposta[0] == 's') && resposta[1] == '\0') {
-            primeira_vez = 1;
-        } else if ((resposta[0] == 'N' || resposta[0] == 'n') && resposta[1] == '\0') {
-            primeira_vez = 0;
-        } else {
-            printf("Resposta invalida. Digite S ou N.\n");
-        }
+        if ((resposta[0] == 'S' || resposta[0] == 's') && resposta[1] == '\0') primeira_vez = 1;
+        else if ((resposta[0] == 'N' || resposta[0] == 'n') && resposta[1] == '\0') primeira_vez = 0;
+        else printf("Resposta invalida\n");
     }
  
     // se ninguem jogou ainda nao existe nickname anterior para escolher
     if (primeira_vez == 0 && total_jogadores == 0) {
-        printf("Ainda nao ha nicknames registrados. Vamos criar o seu!\n");
+        printf("Ainda nao ha nicknames registrados\n");
         primeira_vez = 1;
     }
  
     // Jogador insere o nickname (novo se respondeu S, anterior se respondeu N)
-    pronto = 0;
     while (pronto == 0) {
-        if (primeira_vez == 1) {
-            printf("Digite um nickname (ate 20 letras, sem espacos): ");
-        } else {
-            printf("Digite o seu nickname anterior: ");
-        }
+        if (primeira_vez == 1) printf("Digite um nickname (ate 20 letras, sem espacos): ");
+        else printf("Digite o seu nickname anterior: ");
         scanf("%20s", nick);
  
         // procura o nickname digitado na lista
-        achou = 0;
         for (i = 0; i < total_jogadores; i++) {
             igual = 1;
             for (j = 0; j < 21; j++) {
