@@ -5,8 +5,8 @@
 #define LARGURA_TELA        80   // colunas do terminal
 #define ALTURA_TELA         24   // linhas do terminal
 #define COLUNA_ALVO         10   // coluna da zona de acerto
-#define JANELA_PERFEITO_MS  50   // tolerÃ¢ncia (ms) para acerto perfeito
-#define JANELA_BOM_MS       120  // tolerÃ¢ncia (ms) para acerto bom; acima disso Ã© erro
+#define JANELA_PERFEITO_MS  50   // tolerancia (ms) para acerto perfeito
+#define JANELA_BOM_MS       120  // tolerancia (ms) para acerto bom; acima disso eh erro
 #define PONTOS_PERFEITO     100  // pontos por acerto perfeito
 #define PONTOS_BOM          50   // pontos por acerto bom 
  
@@ -136,7 +136,7 @@ int main (){
  
     int menu;
  
- //OpÃ§Ãµes de menu
+ //Opcoes de menu
  
  
  //exibe na tela a imagem do gatinho batendo no tambor
@@ -171,7 +171,7 @@ int main (){
     printf("\n..............................::**:........................");
 	printf("\n................................=-.........................");
 	
-//exibe as opções do menu inicial
+//exibe as opcoes do menu inicial
 
 
     printf("\n\n\t\tTela Inicial:");
