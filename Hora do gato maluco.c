@@ -108,11 +108,11 @@ void TELA_COMO_JOGAR(){
 	printf("Notas;\n");
 	printf("Janela de acerto;\n");
 	printf("Janela de acerto perfeito;\n");
-	printf("Pontuacao;\n");
-	printf("Acoes do usuario.\n\n");
+	printf("Comandos do usuario.\n\n");
 	printf("As notas aparecem em uma linha e vao da direita a esquerda e passam pelas janelas de acerto.\n");
-	printf("A janela de acerto gera a pontuacao basica do usuario e eh acionada quando quando uma nota\npassa por ela e o usuario aperta o respectivo comando. ");
-	printf("\nA janela de acerto perfeito funciona quase da mesma maneira que a basica porem sua janela\nde acerto eh menor e eh multiplicado sua pontuacao.");
+	printf("A janela de acerto gera a pontuacao basica do usuario e eh acionada quando uma nota\nentra em seu espaco e o usuario aperta o respectivo comando. ");
+	printf("\nA janela de acerto perfeito funciona quase da mesma maneira que a basica, porem sua janela\nde acerto eh menor e pontuacao maior quando ha o acerto.\n");
+	printf("Os comandos para acertar as notas sao respectivamente o X para acionar a pata esquerda do\ngato maluco e o O para acionar a pata direita.");
  
 }
 void TELA_SOBRE_O_JOGO(){
@@ -122,7 +122,7 @@ void TELA_SOBRE_O_JOGO(){
 	printf("O jogo apresentara elementos em ASCII art que se deslocaram da direita para a esquerda, de acordo com o ritmo. ");
 	printf("O jogador devera pressionar uma determinada tecla no momento correto, de acordo com a posicao dos elementos na tela. ");
 	printf("Como elemento visual, sera utilizado um gato em ASCII Art, realizando movimentos de batida em um tambor, acompanhando o ritmo. ");
-	printf("O projeto tambem buscara explorar recursos sonoros no terminal, conforme as possibilidades técnicas da linguagem C e do ambiente de execucao.");
+	printf("O projeto tambem buscara explorar recursos sonoros no terminal, conforme as possibilidades tecnicas da linguagem C e do ambiente de execucao.");
  
 }
 void TELA_RESULTADOS(){
