@@ -51,7 +51,7 @@ char arquivo_nivel[TOTAL_NIVEIS][20] = {"faded.wav", "TLT.wav", "in_the_end.wav"
 int dificuldade_nivel[TOTAL_NIVEIS] = {2, 3, 4, 5};
 
 int bpm_nivel[TOTAL_NIVEIS] = {90, 96, 105, 130};                      // batidas por minuto da musica
-int primeira_batida_nivel[TOTAL_NIVEIS] = {390, 850, 2000, 520};       // momento (ms) em que comeca o compasso 0 dentro da musica
+int primeira_batida_nivel[TOTAL_NIVEIS] = {580, 1050, 1900, 640};       // momento (ms) em que comeca o compasso 0 dentro da musica
 int duracao_nivel[TOTAL_NIVEIS] = {207000, 153000, 214000, 192500};    // duracao (ms) da musica
 int compassos_nivel[TOTAL_NIVEIS] = {76, 62, 86, 103};                 // quantas linhas tem a matriz do nivel
 
