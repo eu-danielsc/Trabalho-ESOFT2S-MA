@@ -26,7 +26,7 @@ ANTES DE INICIAR O PROGRAMA, execute esses passos:
 #define LARGURA_PISTA       78      // colunas da pista por onde as notas andam
 #define MS_POR_COLUNA       20      // tempo (ms) que uma nota leva para andar uma coluna
 #define MAX_NOTAS           800     // maximo de notas em um nivel
-#define AJUSTE_AUDIO_MS     50      // atraso do som: aumente se as notas chegarem antes da batida, diminua se chegarem depois
+#define AJUSTE_AUDIO_MS     45      // atraso do som: aumente se as notas chegarem antes da batida, diminua se chegarem depois
 #define TOTAL_NIVEIS        4       // quantas musicas (niveis) o jogo tem
  
 // Nicknames e pontuacoes de quem ja jogou.
@@ -51,8 +51,8 @@ char arquivo_nivel[TOTAL_NIVEIS][20] = {"faded.wav", "TLT.wav", "in_the_end.wav"
 int dificuldade_nivel[TOTAL_NIVEIS] = {2, 3, 4, 5};
 
 int bpm_nivel[TOTAL_NIVEIS] = {90, 96, 105, 130};                      // batidas por minuto da musica
-int primeira_batida_nivel[TOTAL_NIVEIS] = {523, 440, 1746, 461};       // momento (ms) em que comeca o compasso 0 dentro da musica
-int duracao_nivel[TOTAL_NIVEIS] = {205000, 155400, 200000, 192500};    // duracao (ms) da musica
+int primeira_batida_nivel[TOTAL_NIVEIS] = {230, 1050, 2350, 600};       // momento (ms) em que comeca o compasso 0 dentro da musica
+int duracao_nivel[TOTAL_NIVEIS] = {207000, 153000, 214000, 192500};    // duracao (ms) da musica
 int compassos_nivel[TOTAL_NIVEIS] = {76, 62, 86, 103};                 // quantas linhas tem a matriz do nivel
 
 // Os niveis: cada linha eh um compasso da musica (4 batidas) dividido em 8 partes iguais.
@@ -207,7 +207,7 @@ char nivel_gato[62][9] = {
 
 // Nivel 3: In The End - Linkin Park (105 BPM)
 char nivel_in_the_end[86][9] = {
-    "........",   //  0  silencio antes da musica
+    "X.......",   //  0  silencio antes da musica
     "X.....X.",   //  1  introducao: piano
     "X.X.X.X.",   //  2
     "X.X.X.X.",   //  3
