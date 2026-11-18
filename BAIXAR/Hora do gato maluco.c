@@ -1,8 +1,8 @@
 /*
 ANTES DE INICIAR O PROGRAMA, execute esses passos:
 	1. Abra a aba "Tools" (Ferramentas)
-	2. Clique em "Compiler Options" (Opções do compilador)
-	3. No espaço abaixo do marcador "Add following commands when following the linker" (que deve estar marcado), adicione ao final do texto o comando "-lwinmm" (copie o que está dentro das aspas)
+	2. Clique em "Compiler Options" (Opcoes do compilador)
+	3. No espaco abaixo do marcador "Add following commands when following the linker" (que deve estar marcado), adicione ao final do texto o comando "-lwinmm" (copie o que esta dentro das aspas)
 	4. Clique em "Ok" para confirmar
 */
 
